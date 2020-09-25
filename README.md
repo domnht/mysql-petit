@@ -16,7 +16,7 @@
 
 ## Installation
 There are two simple steps to start:
-1. Download the source file and copy to your project directory.
+1. [Download here](https://github.com/hieuthanh1908/mysql-petit/releases) and copy to your project directory.
 2. Import this tiny library to your project by `include`, `include_once`, `require` or `require_once`.
 ```php
 require_once('mysql-petit.php');
