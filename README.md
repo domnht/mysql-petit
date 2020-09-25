@@ -143,9 +143,9 @@ $row = fetch_record($table_name, $fields, $condition);
 ### Fetch more than one record.
 `fetch_data` may meet your need. Here is the syntax:
 ```php
-fetch_data(String $table_name [, String $fields = '*' [, $fetch_array = false [, $condition = '' [, $order = '' [, $from = 0 [, $step = 100]]]]]]) : Array?;
+fetch_data(String $table_name [, String $fields = '*' [, $fetch_array = false [, $condition = '' [, $order = '' [, $from = 0 [, $step = 100]]]]]]) : Array?
 // bellow syntax is also accepted
-fetch_data(String $table_name [, Array  $fields = '*' [, $fetch_array = false [, $condition = '' [, $order = '' [, $from = 0 [, $step = 100]]]]]]) : Array?;
+fetch_data(String $table_name [, Array  $fields = '*' [, $fetch_array = false [, $condition = '' [, $order = '' [, $from = 0 [, $step = 100]]]]]]) : Array?
 ```
 The **parameters** is used likely `fetch_record`.
 
