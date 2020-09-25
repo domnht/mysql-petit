@@ -65,8 +65,9 @@ function delete_record($table, $condition = '') {
 	$result = $db -> query($query);
 	return ($result != false);
 }
-function fetch_row($table, $fields, $condition = '') {
+function fetch_record($table, $fields = '*', $condition = '') {
 	global $db;
+	if (!is_array($fields)) $fields = explode(',', $fields);
 	$field = '';
 	if ($condition) { $where = 'WHERE'; } else { $where = ''; }
 	foreach ($fields as $key => $value) {
@@ -81,9 +82,10 @@ function fetch_row($table, $fields, $condition = '') {
 	}
 	return null;
 }
-function fetch_data_assoc($table, $fields, $condition = '', $order = '', $from = 0, $step = 100) {
+function fetch_data_assoc($table, $fields = '*', $condition = '', $order = '', $from = 0, $step = 100) {
 	global $db;
 	//$from = ($page - 1) * $step;
+	if (!is_array($fields)) $fields = explode(',', $fields);
 	$field = '';
 	if ($condition) { $where = 'WHERE'; } else { $where = ''; }
 	if ($order) { $order_by = 'ORDER BY'; } else { $order_by = ''; }
@@ -106,9 +108,10 @@ function fetch_data_assoc($table, $fields, $condition = '', $order = '', $from =
 	}
 	return [];
 }
-function fetch_data_array($table, $fields, $condition = '', $order = '', $from = 0, $step = 100) {
+function fetch_data_array($table, $fields = '*', $condition = '', $order = '', $from = 0, $step = 100) {
 	global $db;
 	//$from = ($page - 1) * $step;
+	if (!is_array($fields)) $fields = explode(',', $fields);
 	$field = '';
 	if ($condition) { $where = 'WHERE'; } else { $where = ''; }
 	if ($order) { $order_by = 'ORDER BY'; } else { $order_by = ''; }
@@ -131,7 +134,7 @@ function fetch_data_array($table, $fields, $condition = '', $order = '', $from =
 	}
 	return [];
 }
-function count_row($table, $field = '*', $condition = '') {
+function count_record($table, $field = '*', $condition = '') {
 	global $db;
 	if ($condition) { $where = 'WHERE'; } else { $where = ''; }
 	$query = "SELECT COUNT($field) FROM $table $where $condition";
