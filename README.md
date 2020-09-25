@@ -63,12 +63,12 @@ So `$columns` should create your table by this code:
 ```php
 $table_name = 'user';
 $columns = [
-	'user_id' => 'INT PRIMARY KEY',
-	'user_name' => 'VARCHAR(50)',
-	'user_email' => 'VARCHAR(100)',
-	'user_gender' => 'TINYINT DEFAULT 0',
-	'user_password' => 'VARCHAR(100)',
-	'date_modified' => 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
+    'user_id' => 'INT PRIMARY KEY',
+    'user_name' => 'VARCHAR(50)',
+    'user_email' => 'VARCHAR(100)',
+    'user_gender' => 'TINYINT DEFAULT 0',
+    'user_password' => 'VARCHAR(100)',
+    'date_modified' => 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
 ];
 $result = create_table($table_name, $columns); // return true if success
 ```
