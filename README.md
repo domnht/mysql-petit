@@ -1,5 +1,5 @@
 # mySQL Petit
-**mySQL Petit** is a tiny `php` file that I've created to interaction with mySQL database. It's use for writting a query and handling the result for you. **mySQL Petit** is the good choice for small project that don't use any frameworks.
+**mySQL Petit** is a tiny `php` file that I have created to interaction with mySQL database. It's use for writting a query and handling the result for you. **mySQL Petit** is the good choice for small project that don't use any frameworks.
 
 ## Installation
 There are two simple steps to start:
@@ -80,11 +80,11 @@ Here is sample code for inserting a row to above example table:
 ```php
 $table_name = 'user';
 $data = [
-	'user_id' => time(),
-	'user_name' => 'Foo',
-	'user_email' => 'someone@domain.com',
-	'user_gender' => '1',
-	'user_password' => md5('password')
+    'user_id' => time(),
+    'user_name' => 'Foo',
+    'user_email' => 'someone@domain.com',
+    'user_gender' => '1',
+    'user_password' => md5('password')
 ];
 // I ignored date_modified column because I've set its default value is CURRENT_TIMESTAMP
 $result = new_record($table_name, $data);
@@ -103,7 +103,7 @@ For example, to update record from above table, whose `user_name` begin with `'F
 ```php
 $table_name = 'user';
 $data = [
-	'user_name' = 'Bar',
+    'user_name' = 'Bar',
 ]; // The number of fields is depend on your need and your database config.
 $condition = "user_name LIKE 'F%' AND user_gender = 0";
 // You see, the syntax is the same with mySQL query syntax!
