@@ -6,7 +6,8 @@ define('db_name', 'db_name');
 define('collation', 'UTF8');
 
 $db = db();
-if(isset($_GET['debug'])) var_dump($db);
+if(isset($_GET['debug'])) { var_dump($db); echo $query.PHP_EOL; }
+
 function db() {
 	$db = new mysqli(db_host, db_user, db_pass, db_name);
 	if ($db) { $db -> query('SET NAMES '.collation); return $db; }
@@ -19,6 +20,7 @@ function create_table($table_name, $columns) {
 	foreach ($columns as $key => $value) if ($fields) { $fields = "$fields, $key $value"; } else { $fields = "$key $value"; }
 	if ($fields) {
 		$query = "CREATE TABLE $table_name ($fields)";
+		if (isset($_GET['debug'])) echo $query.PHP_EOL;
 		// return $query;
 		$result = $db -> query($query);
 		if ($result) { return true; }
@@ -28,6 +30,7 @@ function create_table($table_name, $columns) {
 function drop_table($table_name) {
 	global $db;
 	$query = 'DROP TABLE '.$table_name;
+	if (isset($_GET['debug'])) echo $query.PHP_EOL;
 	$result = $db -> query($query);
 	return $result;
 }
@@ -41,7 +44,7 @@ function new_record($table_name, $data) {
 	}
 	if ($field && $value) {
 		$query = "INSERT INTO $table_name ($field) VALUES ($value)";
-		// echo $query.PHP_EOL;
+		if (isset($_GET['debug'])) echo $query.PHP_EOL;
 		$result = $db -> query($query);
 		return $result;
 	}
@@ -53,6 +56,7 @@ function update_record($table_name, $data, $condition) {
 	foreach ($data as $key => $value) if ($raw) { $raw = "$raw, $key = '$value'"; } else { $raw = "$key = '$value'"; }
 	if ($raw) {
 		$query = "UPDATE $table_name SET $raw WHERE $condition";
+		if (isset($_GET['debug'])) echo $query.PHP_EOL;
 		$result = $db -> query($query);
 		if ($result) { return true; }
 	}
@@ -62,6 +66,7 @@ function delete_record($table_name, $condition = '') {
 	global $db;
 	if ($condition) { $where = 'WHERE'; } else { $where = ''; }
 	$query = "DELETE FROM $table_name $where $condition";
+	if (isset($_GET['debug'])) echo $query.PHP_EOL;
 	$result = $db -> query($query);
 	return ($result != false);
 }
@@ -85,6 +90,7 @@ function fetch_data($table_name, $fields = '*', $fetch_array = false, $condition
 	}
 	if ($field) {
 		$query = "SELECT $field FROM $table_name $where $condition $order_by $order LIMIT $from, $step";
+		if (isset($_GET['debug'])) echo $query.PHP_EOL;
 		$result = $db -> query($query);
 		if ($result) {
 			$return = []; $index = 0;
@@ -102,6 +108,7 @@ function count_record($table_name, $field = '*', $condition = '') {
 	global $db;
 	if ($condition) { $where = 'WHERE'; } else { $where = ''; }
 	$query = "SELECT COUNT($field) FROM $table_name $where $condition";
+	if (isset($_GET['debug'])) echo $query.PHP_EOL;
 	$result = $db -> query($query);
 	if ($result) {
 		$data = $result -> fetch_array(MYSQLI_NUM);
