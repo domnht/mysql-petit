@@ -47,7 +47,7 @@ create_table(String $table_name, Array $columns) : Bool
 ```
 **Parameters**
 - `$table_name`: name of the table.
-- `$columns` is an array of `[$string column_name => string $options]`.
+- `$columns` is an array of `[String $column_name => String $options]`.
 For example, you want to create a table which name is `user` and its structure is in the bellow table:
 
 | Name | Type | Options |
@@ -88,7 +88,7 @@ new_record(String $table_name, Array $data) : Bool
 ```
 **Parameters**
 - `$table_name`: name of the table you want to insert data.
-- `$data`: an array of `[$string field_name => string $value]`.
+- `$data`: an array of `[String $field_name => String $value]`.
 Here is sample code for inserting a row to above example table:
 ```php
 $table_name = 'user';
