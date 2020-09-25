@@ -1,15 +1,15 @@
 <?php
-define('db_host', '45.252.248.16');
-define('db_user', 'quockimi');
-define('db_pass', '_hieuThanh1908');
-define('db_name', 'quockimi_new');
-define('collation', 'utf8');
+define('db_host', 'db_host');
+define('db_user', 'db_user');
+define('db_pass', 'db_pass');
+define('db_name', 'db_name');
+define('collation', 'UTF8');
 
 $db = db();
 if(isset($_GET['debug'])) var_dump($db);
 function db() {
 	$db = new mysqli(db_host, db_user, db_pass, db_name);
-	if ($db) { $db -> query('set names '.collation); return $db; }
+	if ($db) { $db -> query('SET NAMES '.collation); return $db; }
 	echo '<h1>Database error !</h1>'; exit;
 	return false;
 }
