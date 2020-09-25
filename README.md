@@ -1,5 +1,5 @@
 # mySQL Petit
-**mySQL Petit** is a tiny `php` file that I have created to interaction with mySQL database. It's use for writting a query and handling the result for you. **mySQL Petit** is the good choice for small project that don't use any frameworks.
+**mySQL Petit** is a tiny `php` file I have created to interaction with mySQL database. It's will generate a query and hand the result for you. **mySQL Petit** is the good choice for small project that don't use any frameworks.
 
 ## Installation
 There are two simple steps to start:
