@@ -1,6 +1,19 @@
 # mySQL Petit
 **mySQL Petit** is a tiny `php` file I have created to interaction with mySQL database. It's will generate a query and hand the result for you. **mySQL Petit** is the good choice for small project that don't use any frameworks.
 
+## Contents
+- [Installation](#installation)
+- [Config](#config)
+- [Global variable](#global-variable)
+- [Table processing](#table-processing)
+  - [Create a table](#create-a-table)
+  - [Delete a table](#delete-a-table)
+- [Record processing](#record-processing)
+  - [Insert record](#insert-record)
+  - [Update record](#update-records)
+  - [Delete record](#delete-records)
+- [Fetch data](#fetch-data)
+
 ## Installation
 There are two simple steps to start:
 1. Download the source file and copy to your project directory.
