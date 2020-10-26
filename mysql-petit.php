@@ -6,7 +6,7 @@ define('db_name', 'db_name');
 define('collation', 'UTF8');
 
 $db = db();
-if(isset($_GET['debug'])) { var_dump($db); echo $query.PHP_EOL; }
+if(isset($_GET['debug'])) { var_dump($db); }
 
 function db() {
 	$db = new mysqli(db_host, db_user, db_pass, db_name);
