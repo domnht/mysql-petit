@@ -145,7 +145,7 @@ class Connection extends \mysqli {
 			$query = "SELECT $field FROM $table $where $condition $orderBy $order LIMIT $from, $step";
 			$result = $this -> query($query);
 			if ($result) {
-				$data = fetch_all($fetchType);
+				$data = $result -> fetch_all($fetchType);
 				return $data;
 			}
 		}
